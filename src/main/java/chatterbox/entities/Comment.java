@@ -1,16 +1,14 @@
 package chatterbox.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
@@ -19,7 +17,9 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
+    @Builder.Default
     private LocalDateTime updatedAt = LocalDateTime.now();
 
     @PreUpdate
@@ -27,6 +27,7 @@ public class Comment {
         this.updatedAt = LocalDateTime.now();
     }
 
+    @Builder.Default
     private int likeCount = 0;
 
     @ManyToOne
@@ -35,7 +36,7 @@ public class Comment {
     private Users user;
 
     @ManyToOne
-    private Comment parentComment ;
+    private Comment parentComment;
 
     @OneToMany(mappedBy = "parentComment")
     private List<Comment> replies;

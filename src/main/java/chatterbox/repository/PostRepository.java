@@ -26,7 +26,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query(value = "UPDATE post SET share_count = share_count + 1 WHERE id = :id", nativeQuery = true)
     void increaseShareCount(@Param("id") Long id);
 
-    // Fixed: Changed 'id' to 'user_id' in WHERE clause
     @Query(value = "SELECT * FROM post WHERE user_id = :userId LIMIT :pageSize OFFSET :offset", nativeQuery = true)
     List<Post> findPostsByUserIdUsingPagination(
             @Param("userId") Long userId,
@@ -34,7 +33,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
             @Param("offset") int offset
     );
 
-    // Fixed: Removed asterisk, added @Modifying, and corrected syntax
     @Modifying(clearAutomatically = true)
     @Query(value = "DELETE FROM post WHERE user_id = :userId", nativeQuery = true)
     void deleteEveryPostOfUserByUserId(@Param("userId") Long userId);

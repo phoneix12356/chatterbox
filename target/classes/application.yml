@@ -19,10 +19,10 @@ spring:
         use_sql_comments: true
   data:
     redis:
-      host: redis-19238.crce182.ap-south-1-1.ec2.redns.redis-cloud.com
-      port: 19238
+      host: redis-15328.c10.us-east-1-4.ec2.cloud.redislabs.com
+      port: 15328
       username: default
-      password: yR7ggroDIaLCtxTmAsK8Vupmw33Ohprw
+      password: GCnhHUZk649rwk9ytm14hN3Ef0AsPppS
 
 
 server:
