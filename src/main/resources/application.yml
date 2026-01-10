@@ -2,7 +2,7 @@ spring:
   application:
     name: chatterbox
   profiles:
-    active: ${ENV:dev}
+    active: ${SPRING_PROFILES_ACTIVE:dev}
 
 server:
   port: 8080

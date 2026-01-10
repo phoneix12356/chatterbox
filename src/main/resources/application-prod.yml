@@ -1,0 +1,26 @@
+spring:
+  datasource:
+     url: jdbc:postgresql://db.tmmqaofvpzxmlcgqlfqg.supabase.co:5432/postgres?sslmode=require
+     username: postgres
+     password: Kartikay@123
+     driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+  data:
+    redis:
+      host: redis-15328.c10.us-east-1-4.ec2.cloud.redislabs.com
+      port: 15328
+      password: GCnhHUZk649rwk9ytm14hN3Ef0AsPppS
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: ERROR
+
+jwt:
+  secret-key: dGhpcyBpcyBhIHNlY3JldCBrZXkgZm9yIEpXVCBhbXhsIEkgYW0gYWRkaW5nIGEgbG9uZ2VyIHRleHQgdG8gbWFrZSBpdCBzZWN1cmU=
+  access-token-expiration-time: 86400000
