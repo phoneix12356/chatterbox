@@ -1,0 +1,4 @@
+package chatterbox.events;
+
+public record FollowRequestEventCreated(Long senderId, Long receiverId, Long target) {
+}
